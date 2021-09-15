@@ -412,5 +412,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9dbce811cc6354f9ca96331a09a96aa8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: 71ccf3a801c8a44f3bb1437789d76d28, type: 2}
+  material: {fileID: 2100000, guid: 6a3e06abb6dba481f87bf42d6f97f0e6, type: 2}
   enable: 0

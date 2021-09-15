@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: DecalPainting
-  m_Shader: {fileID: 4800000, guid: ab95d14526f22421e9a146475091f6f0, type: 3}
+  m_Name: OilPainting2
+  m_Shader: {fileID: 4800000, guid: 301a6443cc210472eb0207c54bfa4b76, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -68,7 +68,7 @@ Material:
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.02
-    - _Radius: 6.45
+    - _Radius: 10
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
