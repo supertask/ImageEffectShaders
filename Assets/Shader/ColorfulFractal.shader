@@ -24,7 +24,11 @@ Shader "Custom/ColorfulFractal"
 			#pragma vertex vert
 			#pragma fragment frag
 			#include "UnityCG.cginc"
-			#include "Assets/Packages/ShaderLib/Shader/SimplexNoise.hlsl"
+			//#include "Assets/Packages/ShaderLib/Shader/SimplexNoise.hlsl"
+			#include "Assets/Packages/ShaderLib/Shader/Noise.hlsl"
+			//#define NOISE snoise
+			//#define NOISE cnoise
+			#define NOISE noise
 			
 			sampler2D _MainTex;
 			float4 _MainTex_TexelSize;
@@ -65,7 +69,7 @@ Shader "Custom/ColorfulFractal"
 				for (int i = 0; i < 4; i++) 
 				{
 					float3 x = half3(IN.uv + float2(_OffsetX[i], _OffsetY[i]), _TimeShift) * _FractalTiling.xyz;
-					y[i] = 0.553 * (snoise(x) + 0.5 * snoise(2 * x) + 0.25 * snoise(4 * x) + 0.125 * snoise(8 * x));
+					y[i] = 0.553 * (NOISE(x) + 0.5 * NOISE(2 * x) + 0.25 * NOISE(4 * x) + 0.125 * NOISE(8 * x));
 				}
 				return mul(_ColorMatrix, _Gain.x * y + _Gain.y);
 			}
