@@ -1,0 +1,6 @@
+[submodule "ShaderLib"]
+	path = ShaderLib
+	url = https://github.com/supertask/ShaderLib.git
+[submodule "Assets/Packages/ShaderLib"]
+	path = Assets/Packages/ShaderLib
+	url = https://github.com/supertask/ShaderLib.git
