@@ -24,11 +24,12 @@ Shader "Custom/ColorfulFractal"
 			#pragma vertex vert
 			#pragma fragment frag
 			#include "UnityCG.cginc"
-			//#include "Assets/Packages/ShaderLib/Shader/SimplexNoise.hlsl"
-			#include "Assets/Packages/ShaderLib/Shader/Noise.hlsl"
-			//#define NOISE snoise
-			//#define NOISE cnoise
-			#define NOISE noise
+			#include "Assets/Packages/ShaderLib/Shader/SimplexNoise.hlsl"
+			//#include "Assets/Packages/ShaderLib/Shader/Noise.hlsl"
+			#define NOISE(uv) snoise(uv)
+			//#define NOISE(uv) curlNoise(uv)
+			//#define NOISE(uv) cnoise(uv)
+			//#define NOISE(uv) pnoise(uv, float3(0,0,0))
 			
 			sampler2D _MainTex;
 			float4 _MainTex_TexelSize;
