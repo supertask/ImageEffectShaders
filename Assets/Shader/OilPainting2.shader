@@ -6,17 +6,33 @@ Shader "ImageEffect/Painting/OilPainting2"
     {
         _MainTex("Texture", 2D) = "white" {}
         _Radius ("Radius", Range(0, 10)) = 0
+
+		_FresnelColor ("Fresnel Color", Color) = (1,1,1,1)
+		_FresnelBias ("Fresnel Bias", Float) = 0
+		_FresnelScale ("Fresnel Scale", Float) = 1
+		_FresnelPower ("Fresnel Power", Float) = 1
     }
     SubShader
     {
-        Blend SrcAlpha OneMinusSrcAlpha
+        //Blend SrcAlpha OneMinusSrcAlpha
         Pass
         {
             CGPROGRAM
             #pragma vertex vert
             #pragma fragment frag
-            #pragma target 3.0
+            #pragma target 5.0
             #include "UnityCG.cginc"
+			#include "Assets/Packages/ShaderLib/Shader/SimplexNoise.hlsl"
+			#include "Assets/Packages/ShaderLib/Shader/PhotoshopMath.hlsl"
+
+            /*
+			struct appdata_t
+			{
+				float4 vertex : POSITION;
+				float2 texcoord : TEXCOORD0;
+				half3 normal : NORMAL;
+			};
+            */
  
             struct v2f {
                 float4 pos : SV_POSITION;
@@ -25,11 +41,22 @@ Shader "ImageEffect/Painting/OilPainting2"
  
             sampler2D _MainTex;
             float4 _MainTex_ST;
+
+            sampler2D _ColorfulFractalTex;
+            float4 _ColorfulFractalTex_ST;
+            
+            sampler2D _CameraDepthTexture;
+
+			float4 _FresnelColor;
+			float _FresnelBias;
+			float _FresnelScale;
+			float _FresnelPower;
  
             v2f vert(appdata_base v) {
                 v2f o;
                 o.pos = UnityObjectToClipPos(v.vertex);
                 o.uv = TRANSFORM_TEX(v.texcoord, _MainTex);
+
                 return o;
             }
  
@@ -85,7 +112,18 @@ Shader "ImageEffect/Painting/OilPainting2"
                         color.rgb = mean[l].rgb;
                     }
                 }
+
+                color = tex2D(_MainTex, uv);
+                
+                return SAMPLE_DEPTH_TEXTURE(_CameraDepthTexture, i.uv);
+                /*
+                bool objExists = SAMPLE_DEPTH_TEXTURE(_CameraDepthTexture, i.uv) > 0;
+                float4 colorFractal = tex2Dlod(_ColorfulFractalTex, float4(uv, 0, 0));
+                color.rgb = objExists ? BlendSoftLight(color.rgb, colorFractal) : color.rgb;
+                */
                 return color;
+
+                //return color;
             }
             ENDCG
         }
