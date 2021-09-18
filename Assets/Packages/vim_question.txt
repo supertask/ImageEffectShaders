@@ -1,3 +1,0 @@
-【Rider x Vimの質問】
-VSCode x Vimや純正vimだと挿入モード(i or o)でctrl+vでpasteなどできるのですが, 結構調べたのですがRider x Vimだとできず，わかる方おられれば幸いです．
-(ちなみに通常モード(ESC)でのctrl+vなどはよく使うのでpasteには割り当てたくないです)

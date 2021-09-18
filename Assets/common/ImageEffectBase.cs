@@ -7,7 +7,6 @@ namespace ImageEffect.Common {
     public class ImageEffectBase : MonoBehaviour {
 
         [SerializeField] protected Material material;
-        [SerializeField] protected bool enable;
 
         protected virtual void Start() {
         }
@@ -20,7 +19,7 @@ namespace ImageEffect.Common {
         }
 
         protected bool IsSupportAndEnable () {
-            return material != null && material.shader.isSupported && enable;
+            return material != null && material.shader.isSupported;
         }
     }
 }

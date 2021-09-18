@@ -7,9 +7,9 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Contour
-  m_Shader: {fileID: 4800000, guid: 3c3c7a25d8fa24ceaaa7a15b4e20d58b, type: 3}
-  m_ShaderKeywords: _CONTOUR_DEPTH
+  m_Name: Painting
+  m_Shader: {fileID: 4800000, guid: 301a6443cc210472eb0207c54bfa4b76, type: 3}
+  m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -58,30 +58,32 @@ Material:
     m_Ints: []
     m_Floats:
     - _BumpScale: 1
-    - _CONTOUR: 1
-    - _ColorSensitivity: 0
     - _Cutoff: 0.5
-    - _DepthSensitivity: 13.3
+    - _DeltaX: 0.0005
+    - _DeltaY: 0.007
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
-    - _FallOffDepth: 100
+    - _FresnelBias: 0
+    - _FresnelPower: 0
+    - _FresnelScale: 0
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
-    - _LowerThreshold: 0.2
     - _Metallic: 0
     - _Mode: 0
-    - _NormalSensitivity: 1
     - _OcclusionStrength: 1
     - _Parallax: 0.02
+    - _Radius: 10
     - _SmoothnessTextureChannel: 0
+    - _Sobel_DeltaX: 0.003
+    - _Sobel_DeltaY: 0.015
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _UVSec: 0
-    - _UpperThreshold: 0.5
     - _ZWrite: 1
     m_Colors:
-    - _Background: {r: 1, g: 0, b: 0.19551277, a: 1}
-    - _Color: {r: 0.084590435, g: 1, b: 0, a: 1}
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _FresnelColor: {r: 0.764151, g: 0.5405315, b: 0.35684407, a: 1}
+    - _SobelLineColor: {r: 0.2830189, g: 0.2830189, b: 0.2830189, a: 1}
   m_BuildTextureStacks: []
